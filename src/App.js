@@ -1,23 +1,19 @@
-import logo from './logo.svg';
+import React, { useEffect } from 'react'
+import FancyButton from './components/FancyButton';
 import './App.css';
 
 function App() {
+  const ref = React.createRef();
+
+  useEffect(() => {
+    ref.current.innerText = 'You got it!'
+  }, [ref])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <FancyButton ref={ref}>
+        Click me!
+      </FancyButton>
     </div>
   );
 }
